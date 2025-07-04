@@ -1,0 +1,26 @@
+utils/entrada_transacoes.py
+Modularização	/ eaproveitamento e manutenção
+Responsabilidade Única (SRP)	/	Cada função faz uma única tarefa
+Nominação Verbal e Clara	/	Compreensível para qualquer dev
+__all__	/	Define o que deve ser importável com *
+Tipagem de retorno (-> tipo)	/	Ajuda em IDEs, testes e leitura
+Tipagem interna (var: tipo)	/	Reforça intenção e clareza
+Validação de dados com while + try/except	/	Evita quebra do programa com entrada errada
+Verificação de campos vazios	/	Evita bugs e entradas incorretas
+__name__ == "__main__"	/	Permite testes isolados sem rodar no import
+Print para debug no modo standalone	/	Verifica se a função está funcionando
+
+
+
+
+
+
+Estrutura do Projeto - Separação de responsabilidades por arquivo + Modularização clara e limpa + Arquivo main.py como ponto de entrada (único com __main__)
+
+Lógica de Negócio - Cálculos com for, if, dicionários e listas aninhadas + Lógica de entrada de dados com validação + Agrupamento por categoria com .get()
+
+Profissionalização - Uso correto de __all__ para controle explícito de importações + Uso de nomes claros e padronizados em funções, arquivos e variáveis + Uso de tipagem com -> int, -> str, -> List[Dict], etc
+
+Saída final - Saída formatada corretamente no terminal + Output profissional com alinhamento e categorias organizadas
+
+Boa Prática Extra - Código comentado com explicações pontuais (sem excessos) + Não há código morto, prints de teste ou funções não utilizadas

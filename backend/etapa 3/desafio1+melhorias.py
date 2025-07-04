@@ -137,7 +137,6 @@ Dicionario - usa apenas uma variavel iteradora para iterar sobre a lista que con
 
 if __name__ == "__main__":
     exibir_relatorio()
-    salvar_relatorio()
 
 """Executa apenas a/as funções que estão dentro do main, inclusive ao ser importado
 ATENÇÃO: Evita que todas as funções sejam executadas automaticamente, ao serem importadas! """

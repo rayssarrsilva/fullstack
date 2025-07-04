@@ -1,0 +1,52 @@
+Digite o número de transações: 3
+
+>>> TRANSAÇÃO 1
+Digite o valor: 1000
+Digite o tipo (entrada/saida): entrada
+Digite a categoria: salario
+
+>>> TRANSAÇÃO 2
+Digite o valor: 250
+Digite o tipo (entrada/saida): saida
+Digite a categoria: mercado
+
+>>> TRANSAÇÃO 3
+Digite o valor: 120
+Digite o tipo (entrada/saida): saida
+Digite a categoria: transporte
+
+--- RELATÓRIO FINAL ---
+
+Total de entradas: R$ 1000.00
+Total de saídas:   R$ 370.00
+Saldo atual:       R$ 630.00
+
+Gastos por categoria:
+ - mercado: R$ 250.00
+ - transporte: R$ 120.00
+
+Objetivo: Criar um sistema que simule a entrada e saída de dinheiro, classifique por categoria, calcule o saldo final e exiba um resumo organizado dos gastos.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+1- O que o sistema deve permitir
+
+Cadastrar transações com:
+
+valor
+
+tipo: entrada ou saída
+
+categoria (ex: mercado, aluguel, transporte)
+
+2- Armazenar as transações em uma lista de dicionários (estrutura flexível e escalável).
+
+3- Exibir:
+
+saldo total
+
+total de entradas
+
+total de saídas
+
+gastos por categoria (usando dicionário acumulativo)
+

@@ -1,0 +1,44 @@
+1 --> Algoritmo = solução passo a passo para um problema
+Backend = conjunto de soluções algorítmicas bem implementadas
+
+2 --> Raciocínio por Decomposição = dividir um problema complexo em partes menores, mais simples e solucionáveis.
+Cada pedaço da decomposição deve virar uma função ou classe com nome e responsabilidade claros.
+
+3 --> Criação de Fluxogramas Mentais e Lógicos
+- Fazer um passo a passo mental antes de abrir o editor
+- Escrever comentários com a lógica antes do código
+- Usar ferramentas como draw.io, diagrams.net ou mermaid.js
+
+Fluxo da função exibir_relatorio():
+[Solicitar nome do usuário]
+→ [Solicitar dados dos dias]
+→ [Gerar lista de atividades]
+→ [Somar total de horas]
+→ [Exibir resumo]
+→ [Salvar no arquivo]
+
+4 --> Planejamento de Casos de Entrada, Saída e Testes
+O objetivo é: identificar todos os tipos possíveis de entrada, saída e erro antes de escrever uma função.
+Usa try/except para lidar com entradas(inputs) inválidos, retornando a saida ideal para cada input previsto com os respectivos Value Errors (KeyError, TypeError, ValueError, etc)
+
+Dicas: Try pra entradas válidas, inválidas e vazias
+
+5 --> Transformação da Lógica em Código de Qualidade
+
+No lugar de:
+def relatorio():
+    nome = input("Digite seu nome")
+    dias = int(input("Dias?"))
+    for d in range(dias):
+        a = input("Atividade")
+        h = int(input("Horas"))
+        print(nome, d, a, h)
+
+Use:
+input_nome()
+input_dias()
+registrar_dia(dia)
+mostrar_relatorio(lista)
+salvar_em_arquivo(lista)
+
+Vantagens: Podem ser testadas individualmente, Suportam crescimento e mudanças sem quebrar tudo e Podem ser usadas em outros sistemas
