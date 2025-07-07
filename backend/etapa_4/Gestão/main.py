@@ -1,6 +1,5 @@
 from utils.relatorio import mostrar_relatorio_final
 
-
 def main(): #cria a função main
     mostrar_relatorio_final()
 
