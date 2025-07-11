@@ -1,5 +1,14 @@
-from classes import Tarefa, Funcionario, Pessoa
-from funcoes import * 
+from models.pessoa import Pessoa
+from models.funcionarios import Funcionario
+from models.tarefa import Tarefa
+
+from services.funcoes import (
+    filtrar_tarefas_concluidas,
+    contar_por_prioridade,
+    obter_titulos,
+    contar_tarefas_total
+)
+
 
 
 def main():
