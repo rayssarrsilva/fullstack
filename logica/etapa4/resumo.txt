@@ -1,0 +1,42 @@
+Paradigmas: imperativo, funcional, Orientado a objetos e Modularização 
+
+
+Programação Imperativa: Sequencia de passos bem definidos, pois a execução ocorre na ordem em que é digitada
+------------------------------------------------------------------
+Programação Funcional: cria funções reutilizáveis, previsíveis e geralmente pequenas
+
+def quadrado(n):
+    return n * n
+
+print(list(map(quadrado, [1, 2, 3])))  # [1, 4, 9]
+
+----------------------------------------------------------------
+Programação Orientada a Objetos: 
+
+class Pessoa:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+    def apresentar(self):
+        print(f"Olá, meu nome é {self.nome} e tenho {self.idade} anos.")
+
+rayssa = Pessoa("Rayssa", 25)
+rayssa.apresentar()
+
+
+Classe → molde
+Objeto → instância do molde
+Atributos → características
+Métodos → comportamentos
+Encapsulamento → esconder detalhes internos, proteger dados(private) e fornecer metodos de acesso (get e set)
+Herança → classe pode herdar de outra
+Polimorfismo → método com mesmo nome se comporta diferente em classes diferentes
+Abstração → classe abstrata - define métodos abstratos que devem ser implementados obrigatoriamente por classes que herdarem ela (exp: class x(abstrato) - a classe x herdou a classe abstrato, e deve usar todos os seus métodos, mas a classe abstrato não pode ser instanciada, diferente das subclasses concretas que herdaram a classe abstrata)
+---------------------------------------------------------------------
+Modularização: Separar responsabilidades em arquivos e funções reutilizáveis
+meu_sistema/
+├── main.py
+├── calculadora.py
+└── mensagens.py
+-------------------------------------------------------------------------

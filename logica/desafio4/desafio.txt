@@ -1,0 +1,75 @@
+✅ Desafio Integrador – Paradigmas de Programação (Etapa 4)
+Objetivo: Simular um sistema de gestão de tarefas em uma empresa, combinando os conceitos de Programação Orientada a Objetos, Estruturada, Funcional e Modular.
+
+🧠 Descrição do sistema
+Você vai desenvolver um sistema simples que:
+
+Cadastra funcionários, com nome, idade e cargo.
+
+Permite ao funcionário criar tarefas, cada uma com título, descrição, prioridade e status (pendente ou concluída).
+
+Permite listar tarefas por status, ou por funcionário.
+
+Mostra estatísticas funcionais usando funções puras e filter, map e reduce:
+
+Total de tarefas
+
+Quantas estão concluídas
+
+Quantas são de alta prioridade
+
+Usa estruturas organizadas e modulares: pelo menos 2 arquivos separados (ex: main.py e tarefas.py ou modelo.py).
+
+Usa herança para criar a classe Funcionario, herdando da classe Pessoa.
+
+📄 Checklist técnico obrigatório
+ Classe Pessoa com atributos e método falar()
+
+ Classe Funcionario(Pessoa) com método bater_ponto()
+
+ Classe Tarefa com atributos definidos acima
+
+ Métodos para adicionar tarefa e listar tarefas
+
+ Filtro funcional para mostrar tarefas pendentes/concluídas
+
+ Uso de filter, map e reduce para gerar estatísticas
+
+ Modularização com pelo menos dois arquivos
+
+ Proteção com if __name__ == "__main__" no main.py
+
+ Comentários explicativos no código
+
+ Boas práticas de indentação e nomes significativos
+
+🧪 Entrada / Output esperados
+Entradas (simulação via input() ou valores fixos para teste):
+
+Dados de funcionários e tarefas
+
+Outputs:
+
+Mensagens claras de cadastro, status e estatísticas como:
+
+Funcionário Joana cadastrou a tarefa: "Revisar relatório"
+Total de tarefas: 5 | Concluídas: 3 | Alta prioridade: 2
+🛠 Ferramentas obrigatórias
+Classes (__init__, métodos e herança)
+
+filter, map, reduce (from functools import reduce)
+
+Dicionários ou listas para armazenar tarefas
+
+Modularização com import
+
+💡 Dicas para se destacar
+Use title() para formatar nomes.
+
+Valide se o funcionário existe antes de atribuir tarefa.
+
+Use métodos como .append(), .get() e controle de status com strings padronizadas ("pendente", "concluída").
+
+Pode usar input() ou pré-preencher dados se quiser agilizar testes.
+
+Use cores e emojis se quiser deixar a saída mais amigável (opcional).
