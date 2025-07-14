@@ -1,0 +1,4 @@
+🎯 Projeto: Gestor de Tarefas com Salvamento de Dados
+💡 Objetivo:
+Simular um sistema real onde as tarefas de funcionários são salvas, carregadas e manipuladas por arquivos, com operações de exportar, importar, tratar erros e manter os dados persistentes.
+
