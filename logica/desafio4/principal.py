@@ -10,7 +10,6 @@ from services.funcoes import (
 )
 
 
-
 def main():
     p1 = Pessoa("Mariana", 50)
 

@@ -5,5 +5,6 @@ class Pessoa():
     
     def __str__(self):
         print(f"nome: {self.nome} - idade {self.idade}")
+        
     def falar(self):
         return f"{self.nome} está falando..."

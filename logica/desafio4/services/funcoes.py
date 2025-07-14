@@ -1,4 +1,4 @@
-from classes import *
+from models.tarefa import Tarefa
 
 def filtrar_tarefas_concluidas(lista_tarefas: list): #List[Tarefa] 
     for a in lista_tarefas:
