@@ -44,7 +44,7 @@ def gerar_relatorio():
                     raise TypeError
             except (TypeError):
                 print("TypeError: digite o dia da semana.")
-            
+
         while True:
             try:
                 atividade = input("Atividade: ").title()
