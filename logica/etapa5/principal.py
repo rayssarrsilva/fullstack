@@ -25,18 +25,22 @@ def main():
 
     lista = ListaTarefas()
 
+    def criar_tarefa():
+        tarefa = str(input("Digite o titulo da tarefa: ")).strip().lower()
+        descricao = str(input("Digite a descricao da tarefa: ")).strip().lower()
+        prioridade = str(input("Digite a prioridade da tarefa: ")).strip().lower()
+        status = str(input("Digite o status da tarefa: ")).strip().lower()
+
+        return Tarefa(tarefa, descricao, prioridade, status)
+    
     while True:
         os.system("cls" if os.name == "nt" else "clear") #retorne o nome do sistema operacional, nt indica que o sistema é Windows, se for usa cls comando windows pra limpar senão usa clear (Unix, Linux e MacOS)
         continuar = str(input("1- adicionar uma tarefa ao relatorio [adicionar]  (Ou digite sair) ")).strip()
         if continuar.lower() == "sair":
             break
         elif continuar.lower() in ("adicionar", "1"):
-            tarefa = str(input("Digite o titulo da tarefa: ")).strip().lower()
-            descricao = str(input("Digite a descricao da tarefa: ")).strip().lower()
-            prioridade = str(input("Digite a prioridade da tarefa: ")).strip().lower()
-            status = str(input("Digite o status da tarefa: ")).strip().lower()
-
-            tarefa_usuario = Tarefa(tarefa, descricao, prioridade, status)
+            tarefa_usuario = criar_tarefa()
+            
             lista.adicionar_tarefa(tarefa_usuario)
 
             listar = str(input("Deseja listar as tarefas salvas na lista? (sim/nao) ")).lower().strip()
