@@ -30,19 +30,18 @@ print("Planejador de Semana Personalizado")
 nome = str(input("Digite seu nome: ")).title() #Converte a primeira letra pra maiusculo
 
 print("preparando sua semana...")
-lista = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sabado", "Domingo"]
+LISTA = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sabado", "Domingo"]
 
 contador = 0 #Conta os dias que foram planejados
 
-
-for dia in lista:
+for dia in LISTA:
     contador += 1
     if dia == "Sabado":
         print(f"{dia} - Dia de descansar")
     elif dia == "Domingo":
         print(f"{dia} - dia de revisar")
     elif dia == "Quarta" and nome == "Rayssa":
-        print(f"{dia} especial de código")
+        print(f"{dia} - especial de código")
     else:
         print(f"{dia} - Dia de Estudar backend")
 
