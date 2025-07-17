@@ -27,19 +27,13 @@ Finaliza com uma mensagem de motivação
 nome = str(input("Qual o nome do usuário: "))
 dia = str(input("Qual o dia da semana? ")).lower() #aceita "Segunda" ou "segunda"
 
-segunda = "Estudar python"
-terça = "Estudar html"
-quarta = "Estudar javascript"
-quinta = "Estudar php"
-sexta = "Estudar CSS"
-
-
 sabado = "Descansar um pouco"
 domingo = "Revisar tudo da semana"
 
 print("preparando...")
 
 contador = 0
+
 while contador < 3:
     contador += 1
     print(contador)
