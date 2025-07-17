@@ -23,20 +23,18 @@ quantidade = int(input("Quantas tarefas serão registradas? "))
 
 tarefas = [] #lista de tarefas vazias onde serão armazenadas
 
-for nome in range(quantidade):
+for _ in range(quantidade):
     name = str(input("Digite o nome de cada tarefa: ")).lower() #deixa minuscula, para filtrar no if do enumerate
     tarefas.append(name)
 
 contador = 0
 print("As tarefas armazenadas são: ")
 for indice, tarefa in enumerate(tarefas):
+    contador += 1
+    
     if tarefa == "descansar":
         continue
-    elif tarefa == "parar":
-        break 
     else:
         print(f"{indice} - {tarefa}")
-        contador += 1
 
 print(f"foram listadas {contador} tarefas")
-
