@@ -30,20 +30,20 @@ class Tarefa():
 
 class ListaTarefas(): #padrão PEP8 para nomes de classes: PascalCase
     def __init__(self):
-        self._lista = [] #lista privada, só pode ser acessada com métodos da classe
+        self.lista = [] #lista privada, só pode ser acessada com métodos da classe
 
     def __str__(self):
-        return f"{self._lista}"
+        return f"{self.lista}"
     
     def adicionar_tarefa(self, tarefa: Tarefa):
         if not isinstance(tarefa, Tarefa):
             raise TypeError("Você precisa adicionar um objeto da classe Tarefa")
         else:
-            self._lista.append(tarefa)
+            self.lista.append(tarefa)
             print(f"Tarefa salva na lista com sucesso")
 
     def listar(self):
-        for a in self._lista:
+        for a in self.lista:
             print(a)
 
 

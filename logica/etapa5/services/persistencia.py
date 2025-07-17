@@ -15,8 +15,7 @@ def salvar_em_json(lista_tarefas: Tarefas, nome_arquivo: str):
         lista_serializada = [tarefa.to_dict() for tarefa in lista_tarefas] #O método json.dump não pode serializar diretamente objetos de uma classe personalizada
         #Serializa os objetos da lista usando o método to_dict()
 
-        with open(nome_arquivo, "w", encoding="utf-8") as arquivo: #flag A: adiciona os dados ao final do arquivo existente.
-
+        with open(nome_arquivo, "w", encoding="utf-8") as arquivo: #flag w: Para formar json valido
             json.dump(lista_serializada, arquivo, indent=4)
 
         logging.info(f"Lista salva com sucesso no arquivo {nome_arquivo}")
@@ -34,23 +33,23 @@ def salvar_em_json(lista_tarefas: Tarefas, nome_arquivo: str):
         return []
 
 
-def carregar_de_json(nome_arquivo: str) -> Tarefas: #recebe o nome do arquivo e retorna a lista do tipo objetos da classe Tarefas
-    
+def carregar_de_json(nome_arquivo: str) -> Tarefas: 
     lista = []
-    try: 
-        with open(nome_arquivo, "r", encoding="utf-8") as arquivo: #explicitar encoding para evitar problemas em outros SOs
-            dados = json.load(arquivo) #decodifica os dados em json pro formato raiz
-            for tarefa in dados:
-                lista.append(Tarefa.from_dict(tarefa))
+
+    try:
+        with open(nome_arquivo, "r", encoding="utf-8") as arquivo:
+            dados = json.load(arquivo)
         
-        return lista 
+        for tarefa in dados:
+            lista.append(Tarefa.from_dict(tarefa))
     
     except FileExistsError:
         logging.error(f"Erro: o arquivo {nome_arquivo} não foi encontrado")
         return lista
     except json.JSONDecodeError:
         logging.error(f"Erro: o arquivo {nome_arquivo} não contem JSON válido")
-        return lista #pra evitar None
+        return lista 
+    return lista #retorna uma lista, logo pra mostrar deve ser iterada
 
 
 def salvar_em_csv(lista_tarefas: Tarefas, nome_arquivo: str):
@@ -101,3 +100,4 @@ def carregar_de_csv(nome_arquivo: str) -> Tarefas:
     except Exception as e:
         logging.error(f"Ocorreu um erro inesperado: {e}")
         return lista #Evita que o main.py tente iterar sobre None
+    print(lista)  
