@@ -65,8 +65,8 @@ def gerar_relatorio(): #retorna uma lista com os dados principais em tuplas sepa
 
 def calcular_total(parametro): #usa o parametro externo com formato de lista de tuplas (gerar_relatorio())
     total = 0
-    for dia, atividade, horas in parametro:
-        total += horas
+    for _, _, horas in parametro:
+        total = total + horas
     
     return total
 

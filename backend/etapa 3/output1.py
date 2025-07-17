@@ -17,4 +17,3 @@ Segunda - Python - 3h
 Terça - Git - 2h
 Total: 5h de estudo
 """
-
