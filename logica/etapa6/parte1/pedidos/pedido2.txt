@@ -1,0 +1,27 @@
+Sistema de Controle de Estoque de Medicamentos
+
+
+
+Armazene uma lista com a quantidade de unidades disponíveis de 7 medicamentos (em qualquer ordem).
+Calcule:
+
+O total de medicamentos disponíveis no estoque.
+A quantidade média por medicamento.
+A quantidade mínima e o nome do medicamento com menor estoque.
+A quantidade de medicamentos com estoque abaixo de 50 unidades.
+Uma lista com os nomes dos medicamentos que precisam de reposição (estoque abaixo de 50).
+
+Exiba essas informações de forma organizada.
+
+OUTPUT --->
+Total de medicamentos no estoque: 290 unidades
+Média de estoque por medicamento: 41.4 unidades
+Menor estoque: Dipirona (22 unidades)
+Quantidade de medicamentos com estoque abaixo de 50: 4
+Medicamentos com estoque crítico: Dipirona, Omeprazol, Buscopan, Paracetamol
+
+
+CHAVE:
+O que o problema pede?
+O que eu tenho?
+O que eu preciso fazer?

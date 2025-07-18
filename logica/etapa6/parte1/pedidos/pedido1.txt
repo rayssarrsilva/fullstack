@@ -1,0 +1,10 @@
+Você foi contratada por uma clínica para processar os dados de atendimento dos pacientes.
+O sistema precisa calcular a média de espera, o tempo mínimo, o tempo máximo e o número de atendimentos acima de 40 minutos.
+
+entrada: tempos = [32, 45, 27, 50, 39, 40, 33]
+
+saida esperada: 
+Média de tempo: 38.0 minutos
+Tempo mínimo: 27 minutos
+Tempo máximo: 50 minutos
+Atendimentos acima de 40 min: 2
