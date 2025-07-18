@@ -55,22 +55,25 @@ def vetor():
 
 # Crie um sistema de apuração de votos para 3 candidatos, com total e percentual.
 
-a = []
-b = []
-c = []
-nulo = []
-for voto in range(1, 11):
-    votacao = input("Em quem voce deseja votar? canditados = [ A, B, C e vazio para contabilizar como nulo]: ").upper()
-    if votacao in ("A", "B", "C"):
-        if votacao == "A":
-            a.append(votacao)
-        elif votacao == "B":
-            b.append(votacao)
-        elif votacao == "C":
-            c.append(votacao)
-    else:
-        nulo.append(votacao)
+def votacao():
+    a = []
+    b = []
+    c = []
+    nulo = []
+    for voto in range(1, 11):
+        votacao = input("Em quem voce deseja votar? canditados = [ A, B, C e vazio para contabilizar como nulo]: ").upper()
+        if votacao in ("A", "B", "C"):
+            if votacao == "A":
+                a.append(votacao)
+            elif votacao == "B":
+                b.append(votacao)
+            elif votacao == "C":
+                c.append(votacao)
+        else:
+            nulo.append(votacao)
 
-print(f"O canditado A teve {len(a)} votos o canditado B teve {len(b)} votos e o canditado C teve {len(c)} votos. \n O total de votos nulos foi {len(nulo)}")
-total = a + b + c
-print(f"O percentual de votos do canditado A foi: {round((len(a)/len(total))*100)}% . O de B foi: {round((len(b)/len(total))*100)}% , o de C foi {round((len(c)/len(total))*100)}% e de votos nulos: {round((len(nulo)/len(total))*100)}% ")
+    print(f"O canditado A teve {len(a)} votos o canditado B teve {len(b)} votos e o canditado C teve {len(c)} votos. \n O total de votos nulos foi {len(nulo)}")
+    total = a + b + c
+    print(f"O percentual de votos do canditado A foi: {round((len(a)/len(total))*100)}% . O de B foi: {round((len(b)/len(total))*100)}% , o de C foi {round((len(c)/len(total))*100)}% e de votos nulos: {round((len(nulo)/len(total))*100)}% ")
+
+caixa()
