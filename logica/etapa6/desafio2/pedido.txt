@@ -1,0 +1,20 @@
+Desafio 2 – Sistema de Análise de Exames Médicos
+🎯 Objetivo
+Simular um sistema que processa e analisa dados de exames laboratoriais com base em listas paralelas, retornando estatísticas e alertas clínicos.
+
+📦 Contexto
+Você recebeu um conjunto de exames com os seguintes dados:
+
+nomes = [...] – Nome do paciente
+glicose = [...] – Níveis de glicose medidos (mg/dL)
+colesterol = [...] – Níveis de colesterol total (mg/dL)
+idade = [...] – Idade do paciente
+
+✅ Regras de Negócio
+Contar quantos pacientes estão com glicose acima de 99 (pré-diabetes ou mais).
+Contar quantos estão com colesterol acima de 200 (risco cardíaco).
+Mostrar o nome do paciente com maior índice de glicose.
+Mostrar a média de glicose e colesterol por idade (dividir em faixas etárias: abaixo de 40, 40–60 e acima de 60).
+Mostrar uma lista com nomes dos pacientes que precisam de acompanhamento (glicose > 99 ou colesterol > 200).
+Gerar um resumo clínico por paciente usando zip.
+
