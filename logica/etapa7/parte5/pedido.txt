@@ -1,0 +1,5 @@
+Sistema de Priorização de Incidentes com Análise de Risco
+
+Desenvolver um sistema inteligente de backend que simula a triagem de chamados técnicos (ex: TI, infraestrutura, SaaS)
+atribui um nível de prioridade com base em critérios complexos, organiza os dados por urgência, e gera relatórios para equipes.
+
