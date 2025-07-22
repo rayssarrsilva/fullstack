@@ -4,10 +4,17 @@ Desafio 2 - Sistema de Análise de Exames Médicos
 Simular um sistema que processa e analisa dados de exames laboratoriais com base em listas paralelas, retornando estatísticas e alertas clínicos.
 
 """
+from typing import List
 
 print("Analise de dados dos Exames laboratoriais")
 
-def entrada():
+def entrada() -> tuple[List[str], List[float], List[float], List[int]]:
+    """
+    Salva a entrada de dados contendo nome, glicose, colesterol e idade de cada respectivo paciente
+
+    Returns:
+        tuple[List[str], List[float], List[float], List[int]]: Retorna uma tupla com a lista de nomes, glicose, colesterol e idade de todos os pacientes anotados
+    """
     nomes = []
     glicose = []
     colesterol = []
@@ -30,34 +37,68 @@ def entrada():
 
     return nomes, glicose, colesterol, idade 
 
-# Desempacotando as listas
-nomes, glicose, colesterol, idade = entrada()
 
-#Conta quantos pacientes estão com glicose acima de 99
-def glicose_alta(glicose): 
+def glicose_alta(glicose: List[float]) -> int: 
+    """
+    Conta quantos pacientes estão com glicose acima de 99
+
+    Args: 
+        glicose (List[float]): lista do tipo float com o valor da glicose de cada paciente
+
+    Returns:
+        int: Retorna a quantidade de pacientes com a glicose acima de 99
+    """
     cont = 0
     for glic in glicose:
         if glic > 99:
             cont = cont + 1
     return cont 
 
-#Conta quantos estão com colesterol acima de 200
-def colesterol_acima(colesterol): 
+
+def colesterol_acima(colesterol: List[float]) -> int: 
+    """
+    Conta quantos pacientes estão com colesterol acima de 200
+
+    Args:
+        colesterol (List[float]): recebe a lista do tipo float que armazenam os valores de glicose
+    
+    Returns: 
+        int: retorna a quantidade de pacientes com colesterol acima de 200
+    """
     cont2 = 0
     for colest in colesterol:
         if colest > 200:
             cont2 = cont2 + 1
     return cont2 
 
-#Mostra o nome do paciente com maior índice de glicose
-def nome_paciente(nomes, glicose): 
+
+def nome_paciente(nomes: list[str], glicose: List[float]) -> tuple[str, float]: 
+    """
+    Mostra o nome do paciente com maior índice de glicose
+
+    Args:
+        nomes, glicose (List[str], List[float]): recebe a lista de nomes do tipo str, e a lista de glicose do tipo float
+    
+    Returns: 
+        str e float: retorna o nome e a glicose od paciente com o maior indice de glicose
+    """
+    valor_maximo = max(glicose) #boas práticas
     for nome, glic in zip(nomes, glicose):
-        if glic == max(glicose):
-            return nome 
+        if glic == valor_maximo:
+            return nome, glic
 
 #Mostra a média de glicose e colesterol por idade (dividir em faixas etárias: abaixo de 40, 40–60 e acima de 60)
-def medir(glicose, colesterol, idade): 
-    dados = list(zip(glicose, colesterol, idade)) # retorna uma lista com colchetes interno [()]
+def medir(glicose: List[float], colesterol: List[float], idade: List[int]) -> tuple[float, float, float, float, float, float]: 
+    """
+    Mostra a média de glicose e colesterol por idade (dividir em faixas etárias: abaixo de 40, 40-60 e acima de 60)
+
+    Args:
+        glicose, colesterol, idade (List[float], List[float], List[str]): pega a lista de glicose, colesterol e idade que armazenam os dados de todos os pacientes
+    
+    Returns:
+        tuple[float, float, float, float, float, float]: retorna a média de glicose e colesterol de cada respectiva faixa, se não houver retorna zero.
+    """
+    dados = list(zip(glicose, colesterol, idade)) 
 
     dicionario = {
         "abaixo_40": {"glicose": [], "colesterol": []},
@@ -65,8 +106,7 @@ def medir(glicose, colesterol, idade):
         "acima_60": {"glicose": [], "colesterol": []}
     }
 
-    #armazena todos os valores nas suas respectivas faixas
-    #ao finalizar o bloco de condicionais adiciona os valores no dicionario conforme a faixa
+    #itera sobre dados e cria a variavel temporaria faixa pra usar como key do dicionario, de acordo com a idade do paciente
     for glico, colest, idade in dados: 
         if idade < 40:
             faixa = "abaixo_40"
@@ -75,24 +115,36 @@ def medir(glicose, colesterol, idade):
         else:
             faixa = "40-60"
 
-        dicionario[faixa]["glicose"].append(glico)
+        #A cada iteração armazena em uma faixa diferente a glicose + colesterol
+        dicionario[faixa]["glicose"].append(glico) 
         dicionario[faixa]["colesterol"].append(colest)
 
+    #inicializa como zero a variavel temporaria e a de armazenamento, pra caso não sejam usadas não de erro no print
+    media_colesterol_40 = media_glicose_40 = 0 
+    media_colesterol_meio = media_glicose_meio = 0
+    media_colesterol_60 = media_glicose_60 = 0
     
-    for idade, tipo in dicionario.items():
-
-        if idade == "abaixo_40":
-            faixa = "abaixo_40"
-            media_glicose_40 = sum(tipo["glicose"])/len(tipo["glicose"])
-            media_colesterol_40 = sum(tipo["colesterol"])/len(tipo["colesterol"])
-        elif idade == "acima_60":
-            faixa = "acima_60"
-            media_glicose_60 = sum(tipo["glicose"])/len(tipo["glicose"])
-            media_colesterol_60 = sum(tipo["colesterol"])/len(tipo["colesterol"])
+    for faixa, tipo in dicionario.items():
+        if tipo["glicose"]: #verifica se não está vazio
+            media_glicose = sum(tipo["glicose"])/len(tipo["glicose"])
         else:
-            faixa = "40-60"
-            media_glicose_meio = sum(tipo["glicose"])/len(tipo["glicose"])
-            media_colesterol_meio = sum(tipo["colesterol"])/len(tipo["colesterol"])
+            media_glicose = 0
+        
+        if tipo["colesterol"]: #verifica se a lista não está vazia
+            media_colesterol = sum(tipo["colesterol"])/len(tipo["colesterol"])
+        else:
+            media_colesterol = 0
+        
+        # se a faixa da iteração atual, for igual a respectiva faixa do if, elif ou else, armazena dentro das variaveis corretas a media que acabou de ser feita nas variaveis temporarias.
+        if faixa == "abaixo_40":
+            media_glicose_40 = media_glicose
+            media_colesterol_40 = media_colesterol
+        elif faixa == "acima_60":
+            media_glicose_60 = media_glicose
+            media_colesterol_60 = media_colesterol
+        else:
+            media_glicose_meio = media_glicose
+            media_colesterol_meio = media_colesterol
     
     print(f"Média glicose (<40): {media_glicose_40}, colesterol: {media_colesterol_40}")
     print(f"Média glicose (40-60): {media_glicose_meio}, colesterol: {media_colesterol_meio}")
@@ -100,8 +152,19 @@ def medir(glicose, colesterol, idade):
 
     return media_glicose_40, media_colesterol_40, media_glicose_60, media_colesterol_60, media_glicose_meio, media_colesterol_meio
 
- #Mostra uma lista com nomes dos pacientes que precisam de acompanhamento (glicose > 99 ou colesterol > 200).
-def acompanhamento(nomes, glicose, colesterol):
+
+def acompanhamento(nomes: List[str], glicose: List[float], colesterol: List[float]) -> List[str]:
+    """
+    Mostra uma lista com nomes dos pacientes que precisam de acompanhamento (glicose > 99 ou colesterol > 200).
+
+    Args:
+        nomes, glicose, colesterol (List[str], List[float], List[float]): recebe a lista de nomes, glicose e colesterol
+    
+    Returns:
+        List[str]: retorna a lista de nomes que precisam de acompanhamento
+
+    """
+
     dados = list(zip(nomes, glicose, colesterol))
     lista_nomes = [] 
 
@@ -111,7 +174,15 @@ def acompanhamento(nomes, glicose, colesterol):
 
     return lista_nomes
 
-def resumo_clinico(nomes, glicose, colesterol, idade):
+def resumo_clinico(nomes: List[str], glicose: List[float], colesterol: List[float], idade: List[int]) -> None:
+    """
+    Mostra o nome completo, idade, nivel de glicose, nivel de colesterol, status de glicose, status de colesterol e se é recomendado acompanhamento médico para cada paciente
+
+    Args:
+        nomes, glicose, colesterol, idade (List[str], List[float], List[Float], List[int]): recebe a lista de nomes, glicose, colesterol e idade que armazena o dado de todos pacientes
+
+    """
+
     dados = list(zip(nomes, glicose, colesterol, idade))
 
     for indic, (n, g, c, i) in enumerate(dados):
@@ -127,4 +198,6 @@ def resumo_clinico(nomes, glicose, colesterol, idade):
         else:
             print(f"ATENÇÃO: Glicose e colesterol alterados. Nivel de glicose: {g} - Nivel de colesterol {c}")
             print("Acompanhamento médico sugerido")
+            
 
+__all__ = ["entrada", "glicose_alta", "colesterol_acima", "nome_paciente", "medir", "acompanhamento", "resumo_clinico"]
