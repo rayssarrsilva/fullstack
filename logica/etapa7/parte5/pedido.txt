@@ -3,3 +3,62 @@ Sistema de Priorização de Incidentes com Análise de Risco
 Desenvolver um sistema inteligente de backend que simula a triagem de chamados técnicos (ex: TI, infraestrutura, SaaS)
 atribui um nível de prioridade com base em critérios complexos, organiza os dados por urgência, e gera relatórios para equipes.
 
+Criar um sistema que receba dados sobre chamados técnicos (como se fossem tickets de suporte), 
+analise a criticidade com base em critérios definidos, e exiba um relatório profissional dos chamados mais críticos, 
+além de estatísticas úteis para tomada de decisão.
+
+
+✅ 4. ordenar_chamados(dados: dict) -> dict
+Objetivo: Ordenar os chamados pelo maior score.
+
+O que ela faz:
+Recebe o dicionário completo com todos os campos (inclusive os scores).
+
+Usa a posição do score para reordenar todos os outros campos.
+
+Retorna o mesmo dicionário com as listas reordenadas de acordo com o score (do maior para o menor).
+
+Dica:
+Você pode usar zip(), sorted(), e depois reconstruir o dicionário.
+
+✅ 5. classificar_status(score: float) -> str
+Objetivo: Classificar o status com base no score individual de cada chamado.
+
+Regras:
+Score	Status
+>= 60	Crítico
+30 a 59	Atenção
+< 30	Normal
+
+Dica:
+Pode ser usada dentro da função que imprime os chamados, ou se preferir, já pode criar uma lista "status" e adicioná-la ao dicionário principal como novo campo.
+
+✅ 6. analisar_estatisticas(dados: dict) -> dict
+Objetivo: Calcular estatísticas com base nos dados dos chamados.
+
+O que ela deve mostrar:
+Quantos chamados são críticos (com base no status).
+
+Quantos chamados por setor.
+
+Média de tempo aberto dos chamados críticos.
+
+Maior tempo aberto.
+
+Setor com mais chamados críticos.
+
+Dica:
+Use:
+for, if, len(), sum(), zip(), dict, e collections.Counter se quiser facilitar.
+
+
+
+✅ 7. Exibição (em main.py)
+Por fim, o arquivo main.py vai chamar tudo e imprimir:
+
+Os chamados (um por um) com:
+
+Título, Score, Prioridade, Tempo aberto, Setor, Status
+
+Estatísticas finais com base na função anterior.
+
