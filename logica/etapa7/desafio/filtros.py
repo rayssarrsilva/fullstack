@@ -1,1 +1,0 @@
-# Classifica chamados por status com base na pontuação

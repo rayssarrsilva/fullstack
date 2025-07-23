@@ -1,1 +1,0 @@
-#calcula as pontuações com base nos criterios
