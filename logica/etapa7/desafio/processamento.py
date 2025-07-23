@@ -65,7 +65,7 @@ def ordenar_chamados(chamado_score: Dict[str, List[ Union[str, float]]]) -> List
 ordenado = ordenar_chamados(chamado_score)
 
 #Classificar o status com base no score individual de cada chamado.
-def classificar_status(ordenado: List[Dict[str, Union[str, float]]]):
+def classificar_status(ordenado: List[Dict[str, Union[str, float]]]) -> List[Dict[str, Union[str, float]]]:
 
     #iterar sobre o dicionario para organizar as condicionais do status
     for chave in ordenado:
@@ -86,6 +86,72 @@ def classificar_status(ordenado: List[Dict[str, Union[str, float]]]):
 
 print(classificar_status(ordenado))
 
+
 #Calcular estatísticas com base nos dados dos chamados
-def analisar_estatisticas():
-    return None
+def analisar_estatisticas(ordenado: List[Dict[str, Union[str, float]]]):
+
+    #Quantos chamados são críticos
+    criticos_quantidade = 0
+    print("---------Quantidade de chamados criticos---------")
+
+    for chave in ordenado:
+        critico = chave["status"]
+
+        if critico == "critico":
+            criticos_quantidade = criticos_quantidade + 1
+
+    if criticos_quantidade == 0:
+        print("Não há nenhum chamado critico")
+    else:
+        print(criticos_quantidade)
+
+    #Quantos chamados por setor.
+    qtd_chamados = {}
+
+    print("---------Quantidade de chamados por setor---------")
+
+    for chave in ordenado:
+        setor = chave["setor_responsavel"]
+        if setor:
+            qtd_chamados[setor] = qtd_chamados.get(setor, 0) + 1
+
+    for chave, valor in qtd_chamados.items():
+        print(f"sentor {chave}: {valor}")
+
+    #Média de tempo aberto dos chamados críticos.
+    print("---------Média de tempo aberto dos chamados críticos---------")
+    lista = []
+
+    for c in ordenado:
+        if critico == "critico":
+            lista.append(c["tempo_aberto"])
+
+    
+    if not lista:
+        print("ATENÇÃO: Não há chamados criticos")
+    else:
+        media = sum(lista)/len(lista)
+        print(media)
+
+    #Maior tempo aberto.
+    print("---------Chamado com maior tempo aberto---------")
+
+    lista_tempo = []
+
+    for chave in ordenado:
+        lista_tempo.append(chave["tempo_aberto"])
+
+    maior = max(lista_tempo)
+
+    print(maior)
+
+    #Setor com mais chamados críticos.
+    print("---------Setor com mais chamados críticos---------")
+
+    mais_chamados = max(qtd_chamados.values())
+    chave_setor = [chave for chave, valor in qtd_chamados.items() if valor == mais_chamados]
+    print(f"{chave_setor} - {mais_chamados}")
+
+analisar_estatisticas(ordenado)
+
+__all__ = ["calcular_score", "atribuir_scores", "ordenar_chamados", "classificar_status", "analisar_estatisticas"]
