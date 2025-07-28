@@ -1,0 +1,5 @@
+Quando usar classes com métodos?
+precisa modelar entidades com características e comportamentos
+organizar melhor o código em partes reutilizáveis
+precisa manter estado (ex: dados de um objeto específicos).
+O projeto tende a crescer (ex: sistemas web, APIs, backend modularizado).

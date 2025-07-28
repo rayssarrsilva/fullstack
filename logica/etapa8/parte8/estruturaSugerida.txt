@@ -1,0 +1,8 @@
+etapa8/
+├── main.py
+├── entrada.py
+├── persistencia.py
+├── processamento.py
+├── relatorio.txt (gerado automaticamente)
+├── dados.json (gerado automaticamente)
+├── historico.csv (gerado automaticamente)

@@ -1,0 +1,3 @@
+Quando usar apenas funções (sem classe)?
+lógica é simples, reutilizável e não precisa manter estado (ex: não precisa lembrar nada entre chamadas).
+Cada função recebe dados, processa e retorna um resultado, sem guardar contexto.

@@ -1,0 +1,89 @@
+Sistema com Persistência em Arquivos Externos
+
+🎯 Objetivo:
+Criar um sistema realista e reutilizável que receba dados estruturados (como os que você já tratou), armazene esses dados em arquivos externos,
+e permita leitura e análise posterior, simulando os princípios de persistência usados em bancos de dados.
+
+----------------------------------------
+🧩 Sistema que você irá desenvolver:
+🩺 Sistema de Registro de Atendimentos de Clínica
+
+📥 Entrada de dados (via entrada.py)
+Você receberá para cada paciente:
+
+nome (str)
+
+idade (int)
+
+motivo da consulta (str)
+
+valor da consulta (float)
+
+data (str, formato DD/MM/AAAA)
+
+| Tarefa                     | Explicação                                                                                           |
+| -------------------------- | ---------------------------------------------------------------------------------------------------- |
+| 1. `salvar_em_txt`         | Salva os dados formatados como relatório de texto legível                                            |
+| 2. `salvar_em_json`        | Salva os dados como lista de dicionários no JSON                                                     |
+| 3. `salvar_em_csv`         | Salva os dados em colunas separadas por vírgula                                                      |
+| 4. `carregar_de_json`      | Abre o arquivo `.json` e transforma de volta em lista de dicionários                                 |
+| 5. `carregar_de_csv`       | Lê o CSV e retorna os dados estruturados                                                             |
+| 6. `gerar_relatorio_final` | Imprime: total recebido, média por consulta, paciente mais recorrente, valor total por paciente, etc |
+
+-----------------------------------
+🔨 O que você deve implementar
+entrada.py
+Função entrada_pacientes() que retorna List[Dict[str, Union[str, int, float]]]
+
+persistencia.py
+Funções:
+
+salvar_em_txt(dados: List[Dict]) -> None
+
+salvar_em_json(dados: List[Dict]) -> None
+
+salvar_em_csv(dados: List[Dict]) -> None
+
+carregar_de_json() -> List[Dict]
+
+carregar_de_csv() -> List[Dict]
+
+processamento.py
+Funções:
+
+total_consultas(dados)
+
+media_valores(dados)
+
+paciente_mais_frequente(dados)
+
+valor_total_por_paciente(dados)
+
+main.py
+Mostra menu:
+
+markdown
+Copiar
+Editar
+1. Registrar novo atendimento
+2. Salvar em TXT / JSON / CSV
+3. Carregar arquivo existente
+4. Mostrar estatísticas
+5. Sair
+
+---------------------------------------------------------
+🧠 Termos técnicos usados nesta etapa:
+Termo	Significado
+Persistência de dados	Guardar informações fora da memória RAM (arquivo ou banco)
+Serialização	Converter estruturas Python em formatos como JSON ou CSV
+Deserialização	Converter um JSON ou CSV de volta para Python
+Relatório	Impressão organizada com cálculos feitos a partir dos dados
+
+---------------------------------------------------------
+
+📌 Desafio adicional (se quiser ir além):
+Criar um backup automático do JSON com data no nome do arquivo.
+
+Permitir atualizar um valor de consulta por nome de paciente.
+
+Listar apenas os atendimentos de uma data específica.

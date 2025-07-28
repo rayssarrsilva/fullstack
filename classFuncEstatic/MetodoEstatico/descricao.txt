@@ -1,0 +1,6 @@
+Métodos estáticos podem ser chamados sem a criação de um objeto da classe.
+Normalmente são criados em classes que não guardam estado
+não depende da instância da classe onde ele foi declarado
+
+Serve como função utilitaria (realiza tarefas comuns e reutilizáveis)
+
