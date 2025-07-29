@@ -1,7 +1,0 @@
-| Técnica                                             | Explicação                                                                                                    |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| 📁 **Leitura e Escrita em `.txt`, `.json`, `.csv`** | Simula bancos de dados. É base para logs, exportações, e arquivos de backup.                                  |
-| 🧠 **Criação de funções reutilizáveis**             | Você vai começar a separar responsabilidades e aplicar princípios como SRP (Single Responsibility Principle). |
-| 🔄 **Processamento e atualização de dados salvos**  | Você vai aprender a modificar um dado já salvo, como ocorre em CRUDs.                                         |
-| 🔎 **Análise com base em arquivos salvos**          | Permite abrir arquivos e gerar relatórios, como um sistema real faria.                                        |
-| 💡 **Pensamento de dados estruturados**             | Você começa a estruturar informações como um dev backend faria antes de usar banco.                           |

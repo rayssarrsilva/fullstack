@@ -1,0 +1,8 @@
+| Conceito                  | Explicação prática                            |
+| ------------------------- | --------------------------------------------- |
+| `if/elif/else`            | Fluxo de decisão encadeado real               |
+| `input()` e `print()`     | Interação com o usuário                       |
+| `try/except`              | Prevenção contra falhas no input              |
+| **Debugging**             | Mostrar variáveis e rastrear decisões         |
+| **Clean Code**            | Boas práticas em nomes, mensagens e estrutura |
+| **Modularização inicial** | Separar diagnóstico em funções                |
