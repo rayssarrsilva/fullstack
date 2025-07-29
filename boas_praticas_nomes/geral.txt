@@ -1,0 +1,24 @@
+| Elemento         | Convenção                    | Exemplo                                |
+| ---------------- | ---------------------------- | -------------------------------------- |
+| **Pastas**       | minúsculas, sem espaço       | `meu_projeto/`                         |
+| **Arquivos .py** | snake\_case                  | `verificador_impressora.py`            |
+| **Variáveis**    | snake\_case, nomes claros    | `numero_de_paginas`                    |
+| **Funções**      | snake\_case, verbos          | `calcular_total()`                     |
+| **Classes**      | PascalCase (CamelCase)       | `ImpressoraLaser`                      |
+| **Constantes**   | UPPER\_CASE                  | `TAXA_JUROS = 0.05`                    |
+| **Módulos**      | snake\_case (igual arquivos) | `from utilitarios import limpar_dados` |
+| **Pacotes**      | snake\_case                  | `import simulador_investimentos`       |
+| **Testes**       | prefixo `test_`              | `def test_somar_valores():`            |
+| **Parâmetros**   | curtos mas descritivos       | `def validar(valor, tipo):`            |
+
+
+Evite: nomes genéricos (data, var, temp).
+
+Prefira: nomes descritivos, mesmo que longos.
+
+Use inglês quando o projeto for técnico/profissional.
+
+Comentários e docstrings ajudam na legibilidade.
+
+Organize funções por responsabilidade (ex: entrada, processamento, saída).
+
