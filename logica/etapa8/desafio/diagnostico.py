@@ -1,6 +1,5 @@
 #entrada de dados do sistema de Diagnóstico de Impressora com Falha
 import logging
-import pdb
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -66,4 +65,3 @@ if __name__ == "__name__": ## Só roda se executar direto, não ao importar
     verificar_visor()
     verificar_funcionamento_impressora()
     verificar_impressao()
-
