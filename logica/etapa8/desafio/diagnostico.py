@@ -41,6 +41,7 @@ def verificar_impressao():
         except ValueError as e :
             logging.debug(f"DEBUG: erro encontrado {e}")
             logging.error("Você deve digitar sim ou nao")
+    print("quantidade de papeis verificada")
 
 def verificar_visor():
     while True:
@@ -61,7 +62,7 @@ def verificar_visor():
             logging.debug(f"DEBUG: erro encontrado {e}")
             logging.error("Você deve digitar sim ou nao")
 
-if __name__ == "__name__": ## Só roda se executar direto, não ao importar
+if __name__ == "__main__": ## Só roda se executar direto, não ao importar
     verificar_visor()
     verificar_funcionamento_impressora()
     verificar_impressao()
