@@ -1,0 +1,42 @@
+| Comando        | O que faz                                            |
+| -------------- | ---------------------------------------------------- |
+| `n` (next)     | Executa a linha atual e vai para a próxima           |
+| `c` (continue) | Continua até o próximo breakpoint ou fim             |
+| `s` (step)     | Entra dentro da função chamada                       |
+| `r` (return)   | Continua até o fim da função atual                   |
+| `q` (quit)     | Sai do depurador                                     |
+| `b NUM`        | Coloca breakpoint na linha `NUM`                     |
+| `disable NUM`  | Desativa breakpoint `NUM`                            |
+| `p VARIAVEL`   | Print da variável (igual só digitar, mas mais claro) |
+| `whatis VAR`   | Mostra o tipo da variável                            |
+| `where` ou `w` | Mostra a pilha de chamadas (call stack atual)        |
+| `up` / `down`  | Navega entre os níveis da pilha de chamadas          |
+
+🧪 1. Inspecionar valores de variáveis
+Basta digitar o nome da variável:
+(Pdb) x
+42
+
+🧾 2. Executar expressões Python
+Você pode rodar contas e funções diretamente:
+
+(Pdb) x + y
+10
+
+🧱 3. Ver a linha atual que será executada
+Mostra o que está prestes a rodar:
+
+(Pdb) l  # ou just `l` (list)
+
+📂 4. Ver as variáveis locais
+Lista todas as variáveis do escopo atual:
+(Pdb) locals()
+{'x': 5, 'y': 10}
+
+🌍 5. Ver as variáveis globais
+Exibe variáveis do escopo global:
+(Pdb) globals()
+
+📚 6. Ajudas e comandos disponíveis
+Ver ajuda:
+(Pdb) help
