@@ -1,0 +1,96 @@
+Analisador de Estoque Profissional com CSV, Lógica e Algoritmo
+
+🎯 Objetivo geral
+Criar um sistema profissional que:
+
+Lê um arquivo estoque.csv com dados de produtos reais.
+
+Permite consultar, filtrar e analisar os dados com base em lógica, algoritmos e decisões de negócio.
+
+Aplica estruturas como listas, dicionários, loops, condicionais, agregações, ordenações e modularização.
+
+Prepara você para construir sistemas com backend real e APIs futuramente.
+
+
+🧠 3. Funcionalidades obrigatórias (via menu no terminal)
+📃 Listar todos os produtos do estoque
+
+🔍 Filtrar produtos por categoria
+
+⚠️ Listar produtos com estoque abaixo de 5 unidades
+
+💸 Calcular valor total do estoque
+
+🧠 Calcular média de preço por categoria
+
+📊 Mostrar produto mais caro e mais barato
+
+📈 Ordenar produtos por preço ou quantidade
+
+❌ Sair do sistema com mensagem final
+
+
+📁 1. Estrutura de Pastas e Arquivos
+etapa2_estoque/
+├── main.py                        # Interface do sistema com menu e execução
+├── estoque.py                    # Funções de controle de fluxo e orquestração
+├── utils/
+│   ├── leitor.py                 # Função para ler arquivo CSV e retornar dados estruturados
+│   └── calculos.py              # Funções como calcular total, média, menor, maior, etc.
+├── data/
+│   └── estoque.csv              # Dados reais do estoque
+├── tests/
+│   └── test_calculos.py         # Testes unitários reais (pytest)
+
+📦 2. Formato do Arquivo estoque.csv
+nome,categoria,quantidade,preco
+Mouse Gamer,Periféricos,10,149.90
+Teclado Mecânico,Periféricos,3,249.90
+Monitor 24,Monitores,1,899.00
+SSD 1TB,Armazenamento,12,399.00
+Cabo HDMI,Cabos,30,29.90
+
+🧠 4. Algoritmos que você irá aplicar
+| Ação                   | Algoritmo                                                  |
+| ---------------------- | ---------------------------------------------------------- |
+| Listar e buscar        | Iteração com `for` sobre listas de dicionários             |
+| Filtrar                | Condicional + acumuladores                                 |
+| Calcular totais/médias | Soma condicional + contadores                              |
+| Ordenar                | `sorted()` com `key` personalizada                         |
+| Máximo/Mínimo          | `max()` / `min()` com lambda                               |
+| Depuração real         | `logging.debug()`, `print()` e `pdb.set_trace()` se quiser |
+| Estrutura modular      | Separação de responsabilidades por arquivos                |
+
+🧪 5. Testes com pytest obrigatórios
+Criar testes para as seguintes funções:
+
+calcular_valor_total_estoque
+
+filtrar_estoque_critico
+
+buscar_por_categoria
+
+ordenar_por_preco
+
+calcular_media_categoria
+
+Use capsys, monkeypatch, @pytest.mark.parametrize e assert com casos reais e mensagens claras.
+
+
+📋 6. Requisitos técnicos obrigatórios
+Uso de with open(..., newline='', encoding='utf-8') para ler o CSV
+
+Modularização com no mínimo 3 arquivos .py separados
+
+Estrutura de dados: lista de dicionários
+
+Logging de entrada, exceção e decisões
+
+Testes com pytest organizados em pasta tests/
+
+Comentários explicativos profissionais
+
+Código limpo, identado, sem duplicações
+
+README explicando como rodar e o que faz
+
