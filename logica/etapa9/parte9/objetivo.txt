@@ -13,17 +13,17 @@ Prepara você para construir sistemas com backend real e APIs futuramente.
 
 
 🧠 3. Funcionalidades obrigatórias (via menu no terminal)
-📃 Listar todos os produtos do estoque
+📃 Listar todos os produtos do estoque CHECK
 
-🔍 Filtrar produtos por categoria
+🔍 Filtrar produtos por categoria CHECK 
 
-⚠️ Listar produtos com estoque abaixo de 5 unidades
+⚠️ Listar produtos com estoque abaixo de 5 unidades CHECK 
 
-💸 Calcular valor total do estoque
+💸 Calcular valor total do estoque CHECK
 
-🧠 Calcular média de preço por categoria
+🧠 Calcular média de preço por categoria CHECK 
 
-📊 Mostrar produto mais caro e mais barato
+📊 Mostrar produto mais caro e mais barato CHECK 
 
 📈 Ordenar produtos por preço ou quantidade
 
