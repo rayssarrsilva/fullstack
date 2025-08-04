@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS filmes;
 DROP TABLE IF EXISTS alugueis;
 
 CREATE TABLE clientes (
-    id_cliente INT PRIMARY KEY,
+    id_cliente INTEGER PRIMARY KEY AUTOINCREMENT,
     nome VARCHAR(80) NOT NULL,
     email VARCHAR(40)
 );
