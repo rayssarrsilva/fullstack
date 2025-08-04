@@ -25,7 +25,7 @@ etapa3_banco/
 📄 Funcionalidades obrigatórias
 📌 Criar banco e tabelas com script.sql CHECK
 
-📌 Inserir clientes e filmes via código Python
+📌 Inserir clientes e filmes via código Python 
 
 📌 Registrar um aluguel (cliente X alugou filme Y)
 
