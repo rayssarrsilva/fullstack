@@ -15,6 +15,9 @@ def inserir_clientes_filmes(nome: str, email: str, titulo: str, categoria:str, p
 
 #Registrar um aluguel
 def registrar_aluguel():
+    conecta = conectar()
+    cur = conecta.cursor()
+
     pass 
 
 #Calcular valor total de filmes alugados por cliente
@@ -40,3 +43,5 @@ def atualizar_status_devolucao():
 #Deletar cliente (com tratamento se tiver aluguéis ativos)
 def deletar_cliente():
     pass
+
+inserir_clientes_filmes("lui", "lui@gmail.com", "sereias", "ficção", "70.33")

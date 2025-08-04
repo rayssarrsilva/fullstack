@@ -1,0 +1,32 @@
+1. Comandos DML (Data Manipulation Language)
+
+SELECT: Recupera dados de uma tabela.
+Exemplo: SELECT * FROM tabela;
+INSERT: Insere novos registros em uma tabela.
+Exemplo: INSERT INTO tabela (coluna1, coluna2) VALUES (valor1, valor2);
+UPDATE: Atualiza dados existentes em uma tabela.
+Exemplo: UPDATE tabela SET coluna1 = valor1 WHERE condição;
+DELETE: Remove registros de uma tabela.
+Exemplo: DELETE FROM tabela WHERE condição;
+
+2. Comandos DDL (Data Definition Language)
+CREATE: Cria tabelas, bancos de dados ou outros objetos.
+Exemplo: CREATE TABLE tabela (coluna1 tipo, coluna2 tipo);
+ALTER: Modifica a estrutura de uma tabela.
+Exemplo: ALTER TABLE tabela ADD coluna tipo;
+DROP: Remove tabelas ou bancos de dados.
+Exemplo: DROP TABLE tabela;
+
+3. Comandos DCL (Data Control Language)
+GRANT: Concede permissões a usuários.
+Exemplo: GRANT SELECT ON tabela TO usuario;
+REVOKE: Revoga permissões de usuários.
+Exemplo: REVOKE SELECT ON tabela FROM usuario;
+
+4. Comandos TCL (Transaction Control Language)
+COMMIT: Salva as alterações realizadas.
+Exemplo: COMMIT;
+ROLLBACK: Reverte alterações não salvas.
+Exemplo: ROLLBACK;
+SAVEPOINT: Define um ponto de salvamento em uma transação.
+Exemplo: SAVEPOINT ponto1;
