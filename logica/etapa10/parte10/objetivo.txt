@@ -1,0 +1,67 @@
+ 3: Sistema de Locadora de Filmes
+
+📦 Descrição
+Você vai criar um sistema de banco de dados relacional que simula uma locadora de filmes
+
+📁 Estrutura esperada do projeto
+etapa3_banco/
+├── main.py                    # Interface/menu
+├── banco/
+│   ├── conexao.py             # Cria conexão com SQLite
+│   ├── script.sql             # Criação das tabelas
+│   ├── operacoes.py           # Funções que executam INSERT, SELECT, etc
+├── tests/
+│   └── test_operacoes.py      # Testes com pytest
+├── data/
+│   └── banco.db               # Banco de dados SQLite gerado
+
+🧱 Modelo de Dados (MER)
+| Tabela       | Atributos                                                                           |
+| ------------ | ----------------------------------------------------------------------------------- |
+| **clientes** | id\_cliente (PK), nome, email                                                       |
+| **filmes**   | id\_filme (PK), titulo, categoria, preco\_aluguel                                   |
+| **alugueis** | id\_aluguel (PK), id\_cliente (FK), id\_filme (FK), data\_aluguel, devolvido (bool) |
+
+📄 Funcionalidades obrigatórias
+📌 Criar banco e tabelas com script.sql CHECK
+
+📌 Inserir clientes e filmes via código Python
+
+📌 Registrar um aluguel (cliente X alugou filme Y)
+
+📌 Listar todos os aluguéis com JOIN mostrando nome do cliente + título do filme
+
+📌 Listar filmes alugados que ainda não foram devolvidos
+
+📌 Listar os 3 clientes que mais alugaram filmes
+
+📌 Calcular valor total de filmes alugados por cliente
+
+📌 Atualizar status de devolução
+
+📌 Deletar cliente (com tratamento se tiver aluguéis ativos)
+
+🧪 Testes obrigatórios com pytest
+
+Função	O que será testado
+Inserção de cliente	Se cliente foi inserido corretamente
+Registro de aluguel	Se o aluguel é gravado e referenciado corretamente
+Consultas com JOIN	Se os dados retornam corretamente com relação
+Filtros com WHERE e ORDER BY	Se os clientes que mais alugaram são retornados corretamente
+
+📌 Use pytest.mark.parametrize, assert, e simule banco temporário em testes se desejar.
+
+🧠 Conceitos de lógica aplicados
+| Conceito                     | Aplicação                                           |
+| ---------------------------- | --------------------------------------------------- |
+| Contagem por grupo           | `SELECT COUNT(*) GROUP BY id_cliente`               |
+| Filtragem booleana           | `WHERE devolvido = 0`                               |
+| Soma condicionada            | `SUM(preco_aluguel)` por cliente                    |
+| Condicional em SQL ou Python | Validar se pode deletar cliente com aluguéis ativos |
+
+⏱️ Prazo estimado
+Modelagem + script.sql: 1 dia
+Funções Python + conexões: 2–3 dias
+Consultas SQL + lógicas: 1–2 dias
+Testes com pytest: 1 dia
+main.py + revisão final: 1 dia
