@@ -9,17 +9,17 @@ CREATE TABLE clientes (
 );
 
 CREATE TABLE filmes (
-    id_filme INT PRIMARY KEY,
+    id_filme INTEGER PRIMARY KEY AUTOINCREMENT,
     titulo VARCHAR(100),
     categoria VARCHAR(50) NOT NULL,
     preco_aluguel DECIMAL(10, 2)
 );
 
 CREATE TABLE alugueis (
-    id_aluguel INT PRIMARY KEY,
+    id_aluguel INTEGER PRIMARY KEY AUTOINCREMENT,
     id_cliente INT,
     id_filme INT,
     devolvido BOOLEAN NOT NULL,
-    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
-    FOREIGN KEY (id_filme) REFERENCES filmes(id_filme)
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente) ON DELETE CASCADE,
+    FOREIGN KEY (id_filme) REFERENCES filmes(id_filme) ON DELETE CASCADE
 );
