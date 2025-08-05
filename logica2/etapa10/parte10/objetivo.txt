@@ -25,13 +25,13 @@ etapa3_banco/
 📄 Funcionalidades obrigatórias
 📌 Criar banco e tabelas com script.sql CHECK
 
-📌 Inserir clientes e filmes via código Python 
+📌 Inserir clientes e filmes via código Python CHECK
 
-📌 Registrar um aluguel (cliente X alugou filme Y)
+📌 Registrar um aluguel (cliente X alugou filme Y) CHECK 
 
-📌 Listar todos os aluguéis com JOIN mostrando nome do cliente + título do filme
+📌 Listar todos os aluguéis com JOIN mostrando nome do cliente + título do filme CHECK 
 
-📌 Listar filmes alugados que ainda não foram devolvidos
+📌 Listar filmes alugados que ainda não foram devolvidos CHECK 
 
 📌 Listar os 3 clientes que mais alugaram filmes
 
@@ -60,7 +60,7 @@ Filtros com WHERE e ORDER BY	Se os clientes que mais alugaram são retornados co
 | Condicional em SQL ou Python | Validar se pode deletar cliente com aluguéis ativos |
 
 ⏱️ Prazo estimado
-Modelagem + script.sql: 1 dia
+Modelagem + script.sql: 1 dia 
 Funções Python + conexões: 2–3 dias
 Consultas SQL + lógicas: 1–2 dias
 Testes com pytest: 1 dia
