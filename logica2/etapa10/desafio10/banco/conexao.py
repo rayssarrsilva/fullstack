@@ -13,6 +13,7 @@ def rodar_script(): #sempre que for rodado deleta as tabelas antigas e cria nova
     with open(os.path.join(base_dir, 'script.sql'), mode='r') as script:
         cursor.executescript(script.read())
 
+    print("O script da criação do banco de dados foi efetuado")
     dados.commit() #Confirma e grava no disco a última vez que deu commit.
     dados.close() #Fecha a conexão com o banco de dados.
 
