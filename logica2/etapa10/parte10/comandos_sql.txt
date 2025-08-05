@@ -30,3 +30,30 @@ ROLLBACK: Reverte alterações não salvas.
 Exemplo: ROLLBACK;
 SAVEPOINT: Define um ponto de salvamento em uma transação.
 Exemplo: SAVEPOINT ponto1;
+------------------------------------------------------
+
+Quando utilizada com funções de agregação, como SUM, COUNT, AVG, MAX e MIN, o GROUP BY é obrigatorio.
+
+Explicação COMANDO SQL 1:
+    SELECT clientes.nome, SUM(filmes.preco_aluguel) AS total_cliente FROM alugueis 
+    JOIN clientes ON alugueis.id_cliente = clientes.id_cliente
+    JOIN filmes ON alugueis.id_filme = alugueis.id_filme
+    GROUP BY clientes.nome
+    ORDER BY total_cliente
+
+1. 
+Explicação COMANDO SQL 2:
+    SELECT clientes.nome, filmes.titulo FROM alugueis 
+    JOIN clientes ON alugueis.id_cliente = clientes.id_cliente
+    JOIN filmes ON alugueis.id_filme = filmes.id_filme
+
+Explicação COMANDO SQL 3:
+    SELECT filmes.titulo FROM alugueis 
+    JOIN filmes ON alugueis.id_filme = filmes.id_filme
+    WHERE devolvido = 0
+
+--------------------------------------------------------
+Observações de Python
+
+função só precisa de commit() se houver INSERT, UPDATE ou DELETE.
+cur.fetchall() -> recupera as linhas e retorna como uma lista de tuplas. cada tupla representa uma linha da tabela
