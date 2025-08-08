@@ -94,12 +94,41 @@ def alugados_nao_devolvidos():
 
 #Listar os 3 clientes que mais alugaram filmes
 def listar_top3_clientes():
-    pass
+    conecta = conectar()
+    cursor = conecta.cursor() 
+
+    comando_sql = """
+    SELECT clientes.nome
+    FROM alugueis a 
+    JOIN clientes ON a.id_cliente = clientes.id_cliente
+    GROUP BY clientes.nome
+    HAVING COUNT(a.id_filme) > 3
+    ORDER BY clientes.nome
+    """
+
+    cursor.execute(comando_sql)
+    resultado = cursor.fetchall()
+
+    conecta.close() #desativa o banco de dados
+    return resultado 
 
 #Atualizar status de devolução
-def atualizar_status_devolucao():
-    pass
+def atualizar_status_devolucao(status, id_aluguel):
+    conecta = conectar()
+    cursor = conecta.cursor()
+    
+    comando_update = """
+    UPDATE alugueis
+    SET devolvido = ?
+    WHERE id_aluguel = ?
+    """
+
+    cursor.execute(comando_update, (status, id_aluguel))
+    print(f"O comando devolvido da tabela alugueis foi alterado para o status {status}")
+
+    conecta.commit()
+    conecta.close()
 
 #Deletar cliente (com tratamento se tiver aluguéis ativos)
 def deletar_cliente():
-    pass
+    pass 
