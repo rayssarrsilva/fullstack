@@ -52,8 +52,44 @@ Explicação COMANDO SQL 3:
     JOIN filmes ON alugueis.id_filme = filmes.id_filme
     WHERE devolvido = 0
 
+Explicação COMANDO SQL 4:
+
+    SELECT clientes.nome
+    FROM alugueis a 
+    JOIN clientes ON a.id_cliente = clientes.id_cliente
+    GROUP BY clientes.nome
+    HAVING COUNT(a.id_filme) > 3
+    ORDER BY clientes.nome
+
+
 --------------------------------------------------------
 Observações de Python
 
 função só precisa de commit() se houver INSERT, UPDATE ou DELETE.
 cur.fetchall() -> recupera as linhas e retorna como uma lista de tuplas. cada tupla representa uma linha da tabela
+-----------------------------------------------
+
+COUNT(tabela.campo) - Conta quantas linhas existem para determinado campo
+Restrições: 
+1. nao pode usar COUNT sem GROUP BY com outras colunas 
+2. Conta apenas valores nao nulos 
+3. para contar até os nulos seria COUNT(*)
+
+FROM — define de onde vêm os dados.
+
+JOIN — junta tabelas para ter todas as colunas que você precisa.
+
+WHERE — filtra antes de agrupar.
+
+GROUP BY — cria grupos de linhas (ex.: agrupa todas as linhas do mesmo cliente, para que o COUNT conte apenas os alugueis daquele cliente, não de todo mundo).
+Se você agrupa por c.nome, cada cliente aparece apenas uma vez no resultado, e as funções agregadas (COUNT, SUM, AVG etc.) mostram valores referentes àquele grupo.
+
+COUNT, SUM, AVG` etc. — são funções de agregação que operam dentro de cada grupo.
+
+HAVING — filtra depois de contar/somar etc.
+
+ORDER BY — ordena o resultado final.
+
+LIMIT — limita o número de linhas no final.
+
+ON - Ele garante que as linhas das tabelas se combinem somente quando a foreign/primary key for igual nas duas tabelas.
