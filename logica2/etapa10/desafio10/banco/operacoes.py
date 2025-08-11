@@ -10,7 +10,7 @@ def inserir_clientes(nome: str, email:str):
     cur = conecta.cursor()
 
     cur.execute("INSERT INTO clientes (nome, email) VALUES (?, ?)", (nome, email))
-    print("Os dados do cliente forão armazenado no banco de dados!")
+    print("Os dados do cliente foram armazenado no banco de dados!")
 
     conecta.commit()
     conecta.close()
@@ -18,11 +18,15 @@ def inserir_clientes(nome: str, email:str):
 #Inserir filmes 
 def inserir_filmes(titulo: str, categoria:str, preco_aluguel:float):
     conecta = conectar()
-    cur = conecta.cursor() 
-    preco_aluguel = preco_aluguel.replace(",",".")
+    cur = conecta.cursor()
+
+    if isinstance(preco_aluguel, str):
+        preco_aluguel = preco_aluguel.replace(",",".")
+    else:  
+        preco_aluguel = float(preco_aluguel)
 
     cur.execute("INSERT INTO filmes (titulo, categoria, preco_aluguel) VALUES (?, ?, ?)", (titulo, categoria, preco_aluguel))
-    print("Os dados forão armazenado no banco de dados!")
+    print("Os dados foram armazenado no banco de dados!")
 
     conecta.commit()
     conecta.close()
@@ -43,11 +47,11 @@ def valor_total_filmes_alugados_por_cliente():
     cur = conecta.cursor()
 
     consulta = """
-    SELECT clientes.nome, SUM(filmes.preco_aluguel) AS total_cliente FROM alugueis 
+    SELECT clientes.id_cliente, clientes.nome, SUM(filmes.preco_aluguel) AS total_cliente FROM alugueis 
     JOIN clientes ON alugueis.id_cliente = clientes.id_cliente
     JOIN filmes ON alugueis.id_filme = filmes.id_filme
-    GROUP BY clientes.nome
-    ORDER BY total_cliente
+    GROUP BY clientes.id_cliente, clientes.nome
+    ORDER BY total_cliente DESC
     """
 
     cur.execute(consulta)
@@ -102,8 +106,8 @@ def listar_top3_clientes():
     FROM alugueis a 
     JOIN clientes ON a.id_cliente = clientes.id_cliente
     GROUP BY clientes.nome
-    HAVING COUNT(a.id_filme) > 3
-    ORDER BY clientes.nome
+    ORDER BY COUNT(a.id_filme) DESC
+    LIMIT 3
     """
 
     cursor.execute(comando_sql)
@@ -130,5 +134,33 @@ def atualizar_status_devolucao(status, id_aluguel):
     conecta.close()
 
 #Deletar cliente (com tratamento se tiver aluguéis ativos)
-def deletar_cliente():
-    pass 
+def deletar_cliente(id_cliente):
+    conecta = conectar()
+    cursor = conecta.cursor()
+
+    alugueis_ativos = """
+    SELECT COUNT(*) FROM alugueis
+    WHERE id_cliente = ? AND devolvido = 0
+    """
+    cursor.execute(alugueis_ativos, (id_cliente,))
+    pendentes = cursor.fetchone()[0]
+
+    if pendentes > 0:
+        print(f"Você possui {pendentes} alugueis pendentes, é necessário devolve-los antes de deletar o cliente solicitado")
+        conecta.close()
+        return 
+    
+    else:
+        comando_delete = """
+        DELETE FROM clientes WHERE id_cliente = ?
+        """
+
+        cursor.execute(comando_delete, (id_cliente,))
+        
+        if cursor.rowcount():
+            print("Cliente deletado com sucesso! ")
+        else:
+            print("Nenhum cliete foi deletado (id nao encontrado)")
+            
+    conecta.commit()
+    conecta.close()
