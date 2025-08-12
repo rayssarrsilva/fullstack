@@ -23,3 +23,4 @@ def conectar():
     
     return sqlite3.connect(caminho_banco) #conecta no caminho do banco de dado
 
+rodar_script()
