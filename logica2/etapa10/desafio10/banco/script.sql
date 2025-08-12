@@ -19,7 +19,7 @@ CREATE TABLE alugueis (
     id_aluguel INTEGER PRIMARY KEY AUTOINCREMENT,
     id_cliente INT,
     id_filme INT,
-    devolvido BOOLEAN NOT NULL,
+    devolvido INTEGER DEFAULT 0,
     FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente) ON DELETE CASCADE,
     FOREIGN KEY (id_filme) REFERENCES filmes(id_filme) ON DELETE CASCADE
 );
