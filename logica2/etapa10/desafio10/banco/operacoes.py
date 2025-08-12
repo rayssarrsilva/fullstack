@@ -1,5 +1,5 @@
 # Funções que executam INSERT, SELECT, etc
-from conexao import conectar 
+from .conexao import conectar 
 
 #Inserir clientes
 def inserir_clientes(nome: str, email:str):
@@ -12,8 +12,7 @@ def inserir_clientes(nome: str, email:str):
     cur.execute("INSERT INTO clientes (nome, email) VALUES (?, ?)", (nome, email))
     print("Os dados do cliente foram armazenado no banco de dados!")
 
-    conecta.commit()
-    conecta.close()
+    return cur.lastrowid
 
 #Inserir filmes 
 def inserir_filmes(titulo: str, categoria:str, preco_aluguel:float):
@@ -28,8 +27,10 @@ def inserir_filmes(titulo: str, categoria:str, preco_aluguel:float):
     cur.execute("INSERT INTO filmes (titulo, categoria, preco_aluguel) VALUES (?, ?, ?)", (titulo, categoria, preco_aluguel))
     print("Os dados foram armazenado no banco de dados!")
 
+    id_filme = cur.lastrowid
     conecta.commit()
     conecta.close()
+    return id_filme
 
 #Registrar um aluguel, cliente X alugou filme Y
 def registrar_aluguel(id_cliente: int, id_filme: int, devolvido: bool): #devolvido, False: nao devolvido. True: devolvido
@@ -38,8 +39,12 @@ def registrar_aluguel(id_cliente: int, id_filme: int, devolvido: bool): #devolvi
 
     cur.execute("INSERT INTO alugueis (id_cliente, id_filme, devolvido) VALUES (?, ?, ?)", (id_cliente, id_filme, devolvido))
 
+    id_aluguel = cur.lastrowid
+
     conecta.commit()
     conecta.close() 
+
+    return id_aluguel 
 
 #Calcular valor total de filmes alugados por cliente
 def valor_total_filmes_alugados_por_cliente():
