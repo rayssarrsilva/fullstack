@@ -10,7 +10,9 @@ def inserir_clientes(nome: str, email:str):
     cur = conecta.cursor()
 
     cur.execute("INSERT INTO clientes (nome, email) VALUES (?, ?)", (nome, email))
-    print("Os dados do cliente foram armazenado no banco de dados!")
+    cur.execute("SELECT clientes.nome FROM clientes WHERE email = ? AND nome = ?", (email, nome))
+    nome = cur.fetchone()[0]
+    print(f"O(a) cliente {nome} foi salvo(a) no banco de dados")
 
     return cur.lastrowid
 
@@ -25,7 +27,7 @@ def inserir_filmes(titulo: str, categoria:str, preco_aluguel:float):
         preco_aluguel = float(preco_aluguel)
 
     cur.execute("INSERT INTO filmes (titulo, categoria, preco_aluguel) VALUES (?, ?, ?)", (titulo, categoria, preco_aluguel))
-    print("Os dados foram armazenado no banco de dados!")
+    print(f"O filme {titulo} foi adicionado ao banco de dados")
 
     id_filme = cur.lastrowid
     conecta.commit()
@@ -41,6 +43,16 @@ def registrar_aluguel(id_cliente: int, id_filme: int, devolvido: bool): #devolvi
 
     id_aluguel = cur.lastrowid
 
+    cur.execute("""
+    SELECT filmes.titulo 
+    FROM alugueis 
+    JOIN filmes ON alugueis.id_filme = filmes.id_filme 
+    WHERE filmes.id_filme = ?
+    """, (id_filme,))
+
+    titulo_filme = cur.fetchone()[0]
+
+    print(f"O filme {titulo_filme} foi alugado")
     conecta.commit()
     conecta.close() 
 
@@ -169,3 +181,5 @@ def deletar_cliente(id_cliente):
             
     conecta.commit()
     conecta.close()
+
+    __all__ = ["inserir_clientes", "inserir_filmes", "registrar_aluguel", "valor_total_filmes_alugados_por_cliente", "listar_alugueis", "alugados_nao_devolvidos", "listar_top3_clientes", "atualizar_status_devolucao", "deletar_cliente"]
