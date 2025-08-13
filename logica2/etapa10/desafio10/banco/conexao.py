@@ -22,5 +22,3 @@ def conectar():
     caminho_banco = os.path.join(base_dir, '..', 'data', 'banco.db') #leva ao banco de dados
     
     return sqlite3.connect(caminho_banco) #conecta no caminho do banco de dado
-
-rodar_script()
