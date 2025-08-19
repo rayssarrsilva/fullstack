@@ -13,7 +13,7 @@
 # Sobre o repositório
 O objetivo desse projeto é separar em duas pastas um roadmap para quem deseja seguir na area de backend, frontend, ou ambos (fullstack).
 
-1A- A pasta Backend apresentará os conceitos tecnicos gerais do desenvolvimento:
+1A- A pasta logica apresentará os conceitos tecnicos gerais do desenvolvimento:
 listas, tuplas, dicionarios, variaveis de armazenamento, estrutura de dados, entrada de dados, iterações, loops com for, while, indices, etc em mini projetos práticos úteis por etapa. 
 2A- Apos ver todos esses conceitos do backend, inicia o desenvolvimento de APIs, uso de frameworks, integrações, docker, CI/CD, deploy, Banco de Dados automatização e projetos de mercado.
 
